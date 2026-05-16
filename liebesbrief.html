@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unser Love Code</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #07111f, #10233f, #182b49);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: #f4f7fb;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 540px;
+      background: rgba(9, 19, 34, 0.94);
+      border: 1px solid rgba(125, 160, 210, 0.25);
+      border-radius: 26px;
+      padding: 34px 28px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      text-align: center;
+    }
+
+    .label {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #82a9df;
+      margin-bottom: 12px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 31px;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    .intro {
+      font-size: 16px;
+      line-height: 1.55;
+      color: #c9d7ea;
+      margin-bottom: 26px;
+    }
+
+    .heart-button {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: linear-gradient(135deg, #1f6feb, #0b3d91);
+      color: white;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      font-size: 38px;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(31, 111, 235, 0.38);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      margin-bottom: 24px;
+    }
+
+    .heart-button:hover {
+      transform: scale(1.06);
+      box-shadow: 0 16px 38px rgba(31, 111, 235, 0.48);
+    }
+
+    .story-box {
+      min-height: 165px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(130, 169, 223, 0.24);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .story-text {
+      font-size: 18px;
+      line-height: 1.55;
+      color: #edf4ff;
+    }
+
+    .counter {
+      font-size: 14px;
+      color: #9eb8dc;
+      margin-bottom: 18px;
+    }
+
+    .code {
+      font-family: "Courier New", monospace;
+      background: #050a12;
+      color: #b9d7ff;
+      border: 1px solid rgba(130, 169, 223, 0.22);
+      border-radius: 16px;
+      padding: 15px;
+      font-size: 14px;
+      text-align: left;
+      overflow-x: auto;
+      margin-bottom: 18px;
+    }
+
+    .small-note {
+      font-size: 13px;
+      color: #9eb8dc;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="label">Kennenlerntag</div>
+    <h1>Unser Love Code</h1>
+    <p class="intro">
+      Klick auf das Herz. Dann erscheinen ein paar kleine Gründe,
+      warum ich uns so mag.
+    </p>
+
+    <button class="heart-button" id="heartButton">♥</button>
+
+    <section class="story-box">
+      <p class="story-text" id="storyText">
+        Klick auf das Herz, dann geht es los.
+      </p>
+    </section>
+
+    <div class="counter" id="counter">0 / 7</div>
+
+    <pre class="code">while (weGrowTogether) {
+    love++;
+}</pre>
+
+    <p class="small-note">Für dich. Für uns. Für alles, was noch kommt.</p>
+  </main>
+
+  <script>
+    const stories = [
+      "Ich mag, dass du mein Fels in der Brandung bist, an den ich mich anlehnen kann.",
+      "Ich mag unsere kleinen Routinen. Die unspektakulären Momente mit dir fühlen sich irgendwie besonders an.",
+      "Ich liebe, dass du Dinge hast, für die du brennst. Gym, NBA, gute Hemden. Auch wenn du mir manchmal damit auf den Geist gehst.",
+      "Ich mag, dass wir zusammen lachen können. Auch über den grössten Schmarrer.",
+      "Ich liebe es, dass du mir jeden Tag um 11:11 und 22:22 Uhr ein Herz sendest.",
+      "Happy Kennenlerntag. Ich bin froh, dass es dich gibt und dass aus genau diesem Kennenlernen wir geworden sind."
+    ];
+
+    let index = 0;
+
+    const button = document.getElementById("heartButton");
+    const storyText = document.getElementById("storyText");
+    const counter = document.getElementById("counter");
+
+    button.addEventListener("click", function () {
+      storyText.textContent = stories[index];
+      counter.textContent = (index + 1) + " / " + stories.length;
+      index = index + 1;
+
+      if (index >= stories.length) {
+        index = 0;
+      }
+    });
+  </script>
+</body>
+</html>
